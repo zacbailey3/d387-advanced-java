@@ -23,8 +23,6 @@
   <div class="scene" id="welcome">
     <article class="content">
 
- 
-
       <div class="row">
         <div class=""col-12>
           <div class="gallery">
@@ -58,7 +56,7 @@
               </div>
               </form>
 
-        
+
         </div>
       </div>
 
@@ -75,7 +73,11 @@
                 </td>
                 <td>
                   <strong>Room #: {{room.roomNumber}}</strong><br/>
-                  <strong>Price: ${{room.price}}</strong>
+                  <strong>Price (USD): ${{room.price}}</strong><br/>
+                  <!-- B2 CA EUR pricing-->
+                  <strong>Price (CA): ${{room.price}}</strong><br/>
+                  <strong>Price (EUR): €{{room.price}}</strong>
+
                 </td>
                 <td>
                   <button type="submit" class="btn btn-primary" (click)="reserveRoom(room.id)">Reserve</button>
