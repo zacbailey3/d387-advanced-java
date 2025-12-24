@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 public class WelcomeTask implements Runnable {
 
     private final Locale locale;
+    private String message;
 
     public WelcomeTask(Locale locale) {
         this.locale = locale;
@@ -13,14 +14,11 @@ public class WelcomeTask implements Runnable {
 
     @Override
     public void run() {
-        ResourceBundle bundle =
-                ResourceBundle.getBundle("welcome", locale);
+        ResourceBundle bundle = ResourceBundle.getBundle("welcome", locale);
+        message = bundle.getString("welcome");
+    }
 
-        System.out.println(
-                bundle.getString("welcome")
-                        + " | Thread: "
-                        + Thread.currentThread().getName()
-        );
-
+    public String getMessage() {
+        return message;
     }
 }

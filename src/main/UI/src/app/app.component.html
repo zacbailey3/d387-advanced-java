@@ -23,6 +23,19 @@
   <div class="scene" id="welcome">
     <article class="content">
 
+      <!-- add B1B fr/en -->
+      <div *ngFor="let msg of welcomeMessages">
+        <h1>{{ msg }}</h1>
+      </div>
+
+      <!-- add announcement -->
+      <div style="margin-top: 20px;">
+        <h2>Online Live Presentation Time</h2>
+        <p>ET: {{ presentationTimes.ET }}</p>
+        <p>MT: {{ presentationTimes.MT }}</p>
+        <p>UTC: {{ presentationTimes.UTC }}</p>
+      </div>
+
       <div class="row">
         <div class=""col-12>
           <div class="gallery">

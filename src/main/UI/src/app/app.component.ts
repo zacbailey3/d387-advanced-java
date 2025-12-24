@@ -19,6 +19,12 @@ export class AppComponent implements OnInit{
 
   private baseURL:string='http://localhost:8080';
 
+  //fixed for B parts
+
+  welcomeMessages: string[] = [];
+
+  presentationTimes: any = {};
+
   private getUrl:string = this.baseURL + '/room/reservation/v1/';
   private postUrl:string = this.baseURL + '/room/reservation/v1';
   public submitted!:boolean;
@@ -33,6 +39,18 @@ export class AppComponent implements OnInit{
         checkin: new FormControl(' '),
         checkout: new FormControl(' ')
       });
+
+      //B1B - prints message
+      this.httpClient.get<string[]>('http://localhost:8080/welcome')
+        .subscribe(data => {
+          this.welcomeMessages = data;
+        });
+
+      //B3B - adds a Conference message
+      this.httpClient.get<any>('http://localhost:8080/presentation-time')
+        .subscribe(data => {
+          this.presentationTimes = data;
+        });
 
  //     this.rooms=ROOMS;
 

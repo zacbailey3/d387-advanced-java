@@ -5,11 +5,13 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 public class TimeZoneUtil {
+
     public static ZonedDateTime convertTime(
             LocalDateTime time,
             ZoneId fromZone,
             ZoneId toZone) {
 
-        return time.atZone(fromZone).withZoneSameInstant(toZone);
+        ZonedDateTime fromZoned = time.atZone(fromZone);
+        return fromZoned.withZoneSameInstant(toZone);
     }
 }
